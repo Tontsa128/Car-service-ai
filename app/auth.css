@@ -1,0 +1,122 @@
+/* Authentication and dashboard surfaces. Kept separate from the global foundation styles. */
+.auth-shell,
+.dashboard-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.auth-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.auth-card {
+  width: min(460px, 100%);
+  padding: 36px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--surface);
+  box-shadow: 0 24px 70px rgba(16, 24, 32, .08);
+}
+
+.auth-card h1,
+.dashboard-header h1 {
+  margin: 12px 0;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1;
+}
+
+.auth-card p,
+.dashboard-header p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.auth-form {
+  display: grid;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.auth-form label {
+  display: grid;
+  gap: 8px;
+  font-weight: 700;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.auth-form button {
+  padding: 14px 18px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--accent-dark);
+  color: white;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.error-box {
+  margin-top: 20px;
+  padding: 12px 14px;
+  border: 1px solid #e6b9b9;
+  border-radius: 10px;
+  background: #fff5f5;
+  color: #7c2020;
+}
+
+.dashboard-shell {
+  padding: 64px 0;
+}
+
+.dashboard-header {
+  margin-bottom: 36px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.dashboard-card {
+  min-height: 190px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+}
+
+.dashboard-card h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
+.dashboard-card p {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.dashboard-card span {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+@media (max-width: 900px) {
+  .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .auth-card { padding: 26px; }
+  .dashboard-grid { grid-template-columns: 1fr; }
+}
