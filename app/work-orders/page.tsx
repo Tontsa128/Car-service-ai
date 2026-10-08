@@ -31,7 +31,7 @@ export default async function WorkOrdersPage({searchParams}:{searchParams:Promis
       </form>
       <section className="list-card"><div className="card-heading"><div><div className="eyebrow">AKTIIVISET TYÖT</div><h2>Työmääräykset</h2></div><span className="count-badge">{orders?.length??0}</span></div>
         {!orders?.length?<div className="empty-state"><strong>Ei työmääräyksiä vielä.</strong><span>Kun työ luodaan, seuraava vaihe on diagnoosi ja DVI.</span></div>:
-        <div className="record-list">{orders.map(o=><article className="record-row" key={o.id}><div><strong>#{o.number} · {vehicleMap.get(o.vehicle_id)||"Ajoneuvo"}</strong><span>{customerMap.get(o.customer_id)||"Asiakas"} · {o.complaint||"Työpyyntöä ei kirjattu"}</span></div><span className="status-chip">{o.status}</span></article>)}</div>}
+        <div className="record-list">{orders.map(o=><article className="record-row" key={o.id}><div><strong>#{o.number} · {vehicleMap.get(o.vehicle_id)||"Ajoneuvo"}</strong><span>{customerMap.get(o.customer_id)||"Asiakas"} · {o.complaint||"Työpyyntöä ei kirjattu"}</span></div><span className="status-chip">{o.status}</span><Link className="row-action" href={`/work-orders/${o.id}`}>Avaa →</Link></article>)}</div>}
       </section>
     </section>
   </main>;
