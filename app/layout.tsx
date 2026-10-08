@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./auth.css";
+import "./modules.css";
 
 export const metadata: Metadata = {
   title: "Car Service AI",
-  description: "Modern SaaS workshop operating system for automotive repair businesses.",
+  description: "AI-avusteinen Workshop OS autokorjaamoille.",
 };
 
 export default function RootLayout({
