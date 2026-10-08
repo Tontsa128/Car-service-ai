@@ -61,7 +61,7 @@ export default async function CustomersPage({
           </label>
           <div className="form-two">
             <label>Etunimi<input name="first_name" autoComplete="given-name" /></label>
-            <label>Sukunimi<input name="last_name" autoComplete="family-name" required /></label>
+            <label>Sukunimi<input name="last_name" autoComplete="family-name" /></label>
           </div>
           <label>Yrityksen nimi<input name="company_name" autoComplete="organization" /></label>
           <div className="form-two">
