@@ -19,7 +19,7 @@ function clean(value: FormDataEntryValue | null) {
   return String(value ?? "").trim();
 }
 
-async function context() {
+function canEdit(role: string | null) {\n  return ["owner","admin","manager","service_advisor","technician"].includes(role ?? "");\n}\n\nasync function context() {
   const supabase = await createClient();
   const { data: auth } = await supabase.auth.getClaims();
   if (!auth?.claims?.sub) redirect("/login");
@@ -31,7 +31,7 @@ async function context() {
     .maybeSingle();
 
   if (!profile?.organization_id) redirect("/dashboard");
-  return { supabase, userId: auth.claims.sub, organizationId: profile.organization_id };
+  return { supabase, userId: auth.claims.sub, organizationId: profile.organization_id, role: profile.role as string };
 }
 
 async function loadOrderId(formData: FormData) {
@@ -101,7 +101,7 @@ const dviTemplate = [
 ] as const;
 
 export async function createDvi(formData: FormData) {
-  const { supabase, userId, organizationId } = await context();
+  const { supabase, userId, organizationId, role } = await context();\n  if (!canEdit(role)) redirect("/work-orders");
   const id = await loadOrderId(formData);
 
   const { data: existing } = await supabase
